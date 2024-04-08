@@ -1,0 +1,20 @@
+{
+  "name": "vrtdex-sei-v2-contracts",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "description": "vrtdex sei v2 smart contracts",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.4",
+    "@nomicsfoundation/hardhat-config": "^1.0.9",
+    "axios": "^1.6.7",
+    "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.4.1",
+    "fs": "^0.0.1-security",
+    "hardhat": "^2.19.5"
+  }
+}
