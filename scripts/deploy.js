@@ -35,6 +35,11 @@ async function main() {
     await wsei.waitForDeployment();
     console.log(`WSEI deployed to ${wsei.target}`);
 
+    // console.log('deploy VRToken contract!');
+    const vrtoken = await hre.ethers.deployContract("VRToken", [deployer, deployer, parseInt(Date.now() / 1000 + 10000)]);
+    await vrtoken.waitForDeployment();
+    console.log(`VRToken deployed to ${vrtoken.target}`);
+
     // console.log('deploy VrtdexFactory');
     const vrtdexFactory = await hre.ethers.deployContract("VrtdexFactory", [deployer]);
     await vrtdexFactory.waitForDeployment();
@@ -58,6 +63,7 @@ async function main() {
     fs.writeFileSync('deployed/addresses.json', JSON.stringify({
       'Multicall3': multicall3.target,
       'WSEI': wsei.target,
+      'VRToken': vrtoken.target,
       'VrtdexFactory': vrtdexFactory.target,
       'InitCodePairHash': initCodePairHash.substring(2),
       'VrtdexRouter': vrtdexRouter.target,
