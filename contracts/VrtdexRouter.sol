@@ -293,7 +293,7 @@ library VrtdexLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'42b03154ea1c3e096767e01d6a456455c716dc16ee97091274bfeede2371482c' // init code hash
+                hex'd615f0bfc7807103a7c5529b72aead363003e8a1dae150dac4bf5068061b64c6' // init code hash
             ))));
     }
 

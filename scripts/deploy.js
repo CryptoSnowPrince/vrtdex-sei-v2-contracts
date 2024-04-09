@@ -48,7 +48,7 @@ async function main() {
     // console.log('prepare to deploy VrtdexRouter');
     const initCodePairHash = await vrtdexFactory.INIT_CODE_PAIR_HASH();
     const router = fs.readFileSync('contracts/VrtdexRouter.sol')
-    const newRouter = router.toString().replace('42b03154ea1c3e096767e01d6a456455c716dc16ee97091274bfeede2371482c', initCodePairHash.substring(2))
+    const newRouter = router.toString().replace('d615f0bfc7807103a7c5529b72aead363003e8a1dae150dac4bf5068061b64c6', initCodePairHash.substring(2))
     fs.writeFileSync('contracts/VrtdexRouter.sol', newRouter)
     await hre.run('clean')
     await hre.run('compile')
