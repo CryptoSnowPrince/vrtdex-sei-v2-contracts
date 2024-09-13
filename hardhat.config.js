@@ -4,6 +4,15 @@ require('dotenv').config();
 // Config from environment
 const mnemonicPhrase = process.env.MNEMONIC || 'test test test test test test test test test test test junk';
 const mnemonicPassword = process.env.MNEMONIC_PASSWORD;
+const privateKey = process.env.PRIVATE_KEY;
+
+const accounts = privateKey.length > 0 ? [privateKey] : {
+  mnemonic: mnemonicPhrase,
+  path: 'm/44\'/60\'/0\'/0',
+  initialIndex: 0,
+  count: 1,
+  passphrase: mnemonicPassword,
+}
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -41,17 +50,16 @@ module.exports = {
       },
     ]
   },
-  defaultNetwork: "seitestnet",
+  defaultNetwork: "sei",
   networks: {
+    sei: {
+      url: 'https://evm-rpc.sei-apis.com',
+      accounts,
+      // gasPrice: 1200000000,
+    },
     seitestnet: {
       url: 'https://evm-rpc.arctic-1.seinetwork.io',
-      accounts: {
-        mnemonic: mnemonicPhrase,
-        path: 'm/44\'/60\'/0\'/0',
-        initialIndex: 0,
-        count: 1,
-        passphrase: mnemonicPassword,
-      },
+      accounts,
       gasPrice: 1200000000,
     }
   },

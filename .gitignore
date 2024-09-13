@@ -1,5 +1,6 @@
 node_modules
 .env
+.env.test
 
 # Hardhat files
 /cache
@@ -13,3 +14,4 @@ node_modules
 /coverage
 /coverage.json
 deployed/*.json
+pubkey

@@ -11,13 +11,13 @@ const fs = require("fs");
 async function main() {
   try {
     console.log('deploying...')
-    const retVal = await hreconfig.hreInit(hre)
-    if (!retVal) {
-      console.log('hardhat error!');
-      return false;
-    }
-    await hre.run('clean')
-    await hre.run('compile')
+    // const retVal = await hreconfig.hreInit(hre)
+    // if (!retVal) {
+    //   console.log('hardhat error!');
+    //   return false;
+    // }
+    // await hre.run('clean')
+    // await hre.run('compile')
 
     // console.log('deployer Info');
     const [deployer] = await hre.ethers.getSigners();
